@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Presentation</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" type="text/css" href="fonts/import.css">
+    <link rel="stylesheet" type="text/css" href="slides.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src='slides.js'></script>
+  </head>
+  
+  <body>
+
+    <section class='slides layout-f-aux-widescreen'>
+
+      <article>
+        <h3>README</h3>
+        <p>Due to the use of JSFiddle.net this presentation requires Internet connection.</p>
+        <p>Samples assume that RavenDB (Build 531) is accessible via http://localhost:8080 and is configured as follows:</p>
+        <pre>
+&lt;appSettings&gt;
+  &lt;add key="Raven/AnonymousAccess" value="All"/&gt;
+  &lt;add key="Raven/AccessControlAllowOrigin" value="*"/&gt;
+&lt;/appSettings&gt;
+        </pre>
+      </article>
+
+      <article>
+        <p>
+          <img class='centered' style='height: 554px' src='raven-logo.png'>
+        </p>
+      </article>
+      
+      <article>
+          <h1><small>Introduction to</small><br>
+          RavenDB</h1>
+          
+          <p>
+            Sergey Shishkin<br>
+            <small>
+              <a href="http://shishkin.org">shishkin.org</a><br>
+              <a href="http://twitter.com/sshishkin">@sshishkin</a>
+            </small>
+          </p>
+      </article>
+      
+      <article>
+        <h1>Facts</h1>
+        <h4>Document store</h4>
+        <h4>Written in C#</h4>
+        <h4>Open Source*</h4>
+      </article>
+
+      <article class='smaller'>
+        <h3>Dual License: AGPL + Commercial</h3>
+        <q>You can use Raven for free, if your project is Open Source.</q>
+        <q>If you want to use Raven to build commercial software, you must buy a commercial license.</q>
+      </article>
+
+      <article>
+        <h1>API</h1>
+        <h4>HTTP, JSON</h4>
+        <h4>.NET Client, LINQ</h4>
+      </article>
+
+      <article>
+        <h1>HTTP</h1>
+        <h4>JSONP, CORS</h4>
+        <h4>ETag</h4>
+      </article>
+
+      <article class='fill'>
+        <h2>PUT Document</h2>
+        <iframe src="http://jsfiddle.net/shishkin/Rby7S/5/embedded/js,result/presentation/"></iframe>
+      </article>
+
+      <article class='fill'>
+        <h2>GET Document</h2>
+        <iframe src="http://jsfiddle.net/shishkin/FxrrP/1/embedded/js,result/presentation/"></iframe>
+      </article>
+
+      <article class='fill'>
+        <h2>Query multiple IDs</h2>
+        <iframe src="http://jsfiddle.net/shishkin/YHesJ/2/embedded/js,result/presentation/"></iframe>
+      </article>
+
+      <article>
+        <h3>Indicies</h3>
+        <h4>Static: Map + Reduce</h4>
+        <pre>
+{
+  Map:'from doc in docs
+       where doc.ObjectType==\"User\"
+       select new { doc.HomeState, doc.Name }'
+}</pre>
+        <h4>Dynamic: /indexes/Temp/UsersByName</h4>
+        <h4>Indexed with Lucene.NET</h4>
+      </article>
+
+      <article>
+        <h1>Queries</h1>
+        <pre>/indexes/usersByHomeState?query=HomeState:Maryland&amp;sort=Name</pre>
+        <h4>Lucene syntax</h4>
+      </article>
+
+      <article>
+        <h3>Live Projections</h3>
+        <h4>Map + Reduce + <i>TransformResults</i></h4>
+        <pre>
+Map =
+  users => from user in users
+           select new {user.AliasId};
+
+TransformResults =
+  (database, users) =>
+    from user in users
+    let alias= database.Load<User>(user.AliasId)
+    select new {Name = user.Name, Alias = alias.Name};</pre>
+      </article>
+
+      <article>
+        <h1>Triggers</h1>
+        <h4>PUT, DELETE, Read, Index update</h4>
+        <h4>Used e.g. by Authorization and Spatial-Indexing</h4>
+      </article>
+
+      <article>
+        <h1>Bundles</h1>
+        <h4>Drop-in plugins</h4>
+        <h4>Written in .NET</h4>
+        <h4>Authentication, Authorization, Cascade delete, Expiration, Quotas, Replication, Versioning</h4>
+        <h4>Write your own!</h4>
+      </article>
+
+      <article>
+        <h1>Transactions</h1>
+        <h4>HTTP Header</h4>
+        <h5>Raven-Transaction: <i>GUID</i>, <i>Timeout</i></h5>
+        <h4>Client API supports System.Transactions</h4>
+      </article>
+
+      <article class='fill'>
+        <h3>Batching</h3>
+        <iframe src="http://jsfiddle.net/shishkin/ByQRc/4/embedded/js,result/presentation/"></iframe>
+      </article>
+
+      <article class='fill'>
+        <h2>Replication</h2>
+        <iframe src="http://jsfiddle.net/shishkin/saACD/1/embedded/js,result/presentation/"></iframe>
+      </article>
+
+      <article>
+        <h1>Discussion</h1>
+      </article>
+
+    </section>
+
+  </body>
+</html>
