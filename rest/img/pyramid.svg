@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  version="1.0"
+  preserveAspectRatio="none"
+  viewBox="0 0 300 300"
+  >
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(230,230,230);stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:rgb(20,20,20);stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  <polygon points="150,0 300,300 0,300" fill="url(#grad1)" />
+</svg>

@@ -1,23 +1,175 @@
 <!doctype html>
 <html>
   <head>
-    <title>Impress Tutorial</title>
+    <title>REST: You're Doing It Wrong</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="impress">
-      <div class="step">
-        My first slide
+      <div id="title" class="step" data-x="2048" data-y="1536" data-scale="4">
+        <h2 id="title-rest">REST</h2>
+        <h2 id="title-doing">You're Doing It</h2>
+        <h2 id="title-wrong">WRONG</h2>
       </div>
 
-      <div class="step" data-x="500" data-y="0">
-        This is slide 2
+      <div id="tale" class="step" data-x="512" data-y="384" data-scale="1">
+        <h2>Once upon a time...</h2>
+        <img class="pic" src="img/ice-cream-maker.jpg" width="768px" height="600px" />
       </div>
 
-      <div class="step" data-x="0" data-y="500" data-scale="3">
-        This is slide 3
+      <div id="arch" class="step" data-x="1280" data-y="192" data-scale="0.5">
+        <h2 id="arch-1">Architecture</h2>
+        <h2 id="arch-2">of the</h2>
+        <h2 id="arch-3">Web</h2>
       </div>
+
+      <div id="loose" class="step" data-x="1280" data-y="576" data-scale="0.5">
+        <h2>Loose<br/>Coupling</h2>
+      </div>
+
+      <div id="uniform" class="step" data-x="1792" data-y="576" data-scale="0.5">
+        <h2 id="uniform-1">Simplicity</h2>
+        <h2 id="uniform-2">&</h2>
+        <h2 id="uniform-3">Uniformity</h2>
+      </div>
+
+      <div id="scale" class="step" data-x="1792" data-y="192" data-scale="0.5">
+        <h2 id="scale-1">Scalability</h2>
+        <h2 id="scale-2">&</h2>
+        <h2 id="scale-3">Performance</h2>
+      </div>
+
+      <div id="arch-recap" class="step" data-x="1536" data-y="384" data-scale="1">
+      </div>
+
+      <div id="needs" class="step" data-x="2560" data-y="384" data-scale="1">
+        <h2>You might<br/>not need it!</h2>
+      </div>
+
+      <div id="xmlrpc" class="step" data-x="3328" data-y="192" data-scale="0.5">
+        <pre class="bad">POST <b>/REST.svc</b>
+
+&lt;PlaceOrder&gt;
+  &lt;Product&gt; <b>123</b> &lt;/Product&gt;
+  &lt;Price&gt; <b>19.90</b> &lt;/Price&gt;
+  &lt;Qty&gt; <b>2</b> &lt;/Qty&gt;
+&lt;/PlaceOrder&gt;
+        </pre>
+      </div>
+
+      <div id="jsonrpc" class="step" data-x="3328" data-y="576" data-scale="0.5">
+        <pre class="bad">POST <b>/REST.svc</b>
+
+{
+  PlaceOrder: {
+    Product: <b>123</b>,
+    Price: <b>19.90</b>,
+    Qty: <b>2</b>
+  }
+}
+        </pre>
+      </div>
+
+      <div id="rmm-none" class="step" data-x="3584" data-y="384" data-scale="1">
+        <h2>Richardson REST</br>maturity model</h2>
+        <ul class="pyramid">
+          <!--<li>hypermedia</li>
+          <li>http</li>
+          <li>uri</li>-->
+          <li>none</li>
+        </ul>
+      </div>
+
+      <div id="restfuluri" class="step" data-x="3328" data-y="960" data-scale="0.5">
+        <h2>Which URI<br/>is RESTful?</h2>
+        <pre class="bad">
+/products/books/can-haz-rest
+/products?title=can-haz-rest
+/Y2FuLWhhei1yZXN0%3D
+        </pre>
+      </div>
+
+      <div id="tunnelget" class="step" data-x="3328" data-y="1344" data-scale="0.5">
+        <h2>URL Tunneling</h2>
+        <pre class="bad">
+<b>GET</b> /REST.svc?
+  op=Order&amp;
+  product=123&amp;
+  qty=2
+        </pre>
+      </div>
+
+      <div id="rmm-uri" class="step" data-x="3584" data-y="1152" data-scale="1">
+        <ul class="pyramid">
+          <!--<li>hypermedia</li>
+          <li>http</li>-->
+          <li>uri</li>
+          <li>none</li>
+        </ul>
+      </div>
+
+      <div id="http-get" class="step rmm-http" data-x="3200" data-y="1610" data-scale="0.25">
+        <h2>GET</h2>
+        <h3>idempotent, safe</h3>
+      </div>
+
+      <div id="http-post" class="step rmm-http" data-x="3200" data-y="1740" data-scale="0.25">
+        <h2>POST</h2>
+        <h3>non-idempotent, unsafe</h3>
+      </div>
+
+      <div id="http-put" class="step rmm-http" data-x="3200" data-y="1875" data-scale="0.25">
+        <h2>PUT</h2>
+        <h3>idempotent, unsafe</h3>
+      </div>
+
+      <div id="http-delete" class="step rmm-http" data-x="3200" data-y="1995" data-scale="0.25">
+        <h2>DELETE</h2>
+        <h3>idempotent, unsafe</h3>
+      </div>
+
+      <div id="version" class="step rmm-http" data-x="3200" data-y="2208" data-scale="0.25">
+        <h2>API Version</h2>
+        <h3>/api/v2 ⇒</h3>
+      </div>
+
+      <div id="version-header" class="step rmm-http" data-x="3240" data-y="2240" data-scale="0.16">
+        <pre class="good">
+GET /resource
+
+Accept:
+  application/vnd.example+xml;
+    <b>version=2</b>,
+  application/xml
+        </pre>
+      </div>
+
+      <div id="lang" class="step rmm-http" data-x="3456" data-y="2208" data-scale="0.25">
+        <h2>Language</h2>
+        <h3>/de/product/123<br/>
+/product/123?lang=en&nbsp;&nbsp;⇒<br/>
+/product/123/fr</h3>
+      </div>
+
+      <div id="lang-header" class="step rmm-http" data-x="3712" data-y="2208" data-scale="0.25">
+        <pre class="good">
+GET /product/123
+
+Accept-Language: de
+        </pre>
+      </div>
+
+      <!--
+      <div id="rmm-http" class="step" data-x="3584" data-y="1920" data-scale="1">
+        <ul class="pyramid">
+          <li>http</li>
+          <li>uri</li>
+        </ul>
+      </div>
+      -->
     </div>
     <script type="text/javascript" src="impress.js"></script>
   </body>
