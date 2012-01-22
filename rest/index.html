@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+  <head>
+    <title>REST: You're Doing It Wrong</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700|Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="impress">
+      <div id="title" class="step" data-x="2048" data-y="1536" data-scale="4">
+        <h2 id="title-rest">REST</h2>
+        <h2 id="title-doing">You're Doing It</h2>
+        <h2 id="title-wrong">WRONG</h2>
+      </div>
+
+      <div id="tale" class="step" data-x="512" data-y="384" data-scale="1">
+        <h2>no<br/>chocolate</h2>
+        <h3>without</h3>
+        <h4>cacao</h4>
+      </div>
+
+      <div id="arch" class="step" data-x="1280" data-y="192" data-scale="0.5">
+        <h2>the</h2>
+        <h3>web</h3>
+        <h4>is...<h4>
+      </div>
+
+      <div id="loose" class="step" data-x="1280" data-y="576" data-scale="0.5">
+        <h2>integration</h2>
+        <h3>without</h3>
+        <h4>coupling</h4>
+      </div>
+
+      <div id="uniform" class="step" data-x="1792" data-y="576" data-scale="0.5">
+        <h2>simplicity</h2>
+        <h3>through</h3>
+        <h4>uniformity</h4>
+      </div>
+
+      <div id="scale" class="step" data-x="1792" data-y="192" data-scale="0.5">
+        <h2>performance</h2>
+        <h3>through</h3>
+        <h4>scalability</h4>
+      </div>
+
+      <div id="arch-recap" class="step" data-x="1536" data-y="384" data-scale="1">
+      </div>
+
+      <div id="needs" class="step" data-x="2560" data-y="384" data-scale="1">
+        <h2>you might</h2>
+        <h3>not need</h3>
+        <h4>that!</h4>
+      </div>
+
+      <div id="xmlrpc" class="step" data-x="3328" data-y="192" data-scale="0.5">
+        <h2>is it restful?</h2>
+        <pre class="bad">POST <b>/REST.svc</b>
+
+&lt;PlaceOrder&gt;
+  &lt;Product&gt; <b>123</b> &lt;/Product&gt;
+  &lt;Price&gt; <b>19.90</b> &lt;/Price&gt;
+  &lt;Qty&gt; <b>2</b> &lt;/Qty&gt;
+&lt;/PlaceOrder&gt;
+        </pre>
+      </div>
+
+      <div id="jsonrpc" class="step" data-x="3328" data-y="576" data-scale="0.5">
+        <pre class="bad">POST <b>/REST.svc</b>
+
+{
+  PlaceOrder: {
+    Product: <b>123</b>,
+    Price: <b>19.90</b>,
+    Qty: <b>2</b>
+  }
+}
+        </pre>
+      </div>
+
+      <div id="rmm" class="step" data-x="3840" data-y="576" data-scale="0.5">
+        <h2>Richardson REST</h2>
+        <h3>maturity</h3>
+        <h4>model</h4>
+      </div>
+
+      <div id="rmm-none" class="step" data-x="3840" data-y="420" data-scale="0.5">
+        <h2>Level 0</h2>
+      </div>
+
+      <div id="rmm-uri" class="step" data-x="3840" data-y="300" data-scale="0.5">
+        <h2>Level 1: uri</h2>
+      </div>
+
+      <div id="rmm-http" class="step" data-x="3840" data-y="220" data-scale="0.5">
+        <h2>Level 2: http</h2>
+      </div>
+
+      <div id="rmm-hyper" class="step" data-x="3840" data-y="192" data-scale="0.5">
+        <h2>Level 3: hypermedia</h2>
+      </div>
+
+      <div id="restfuluri" class="step" data-x="3328" data-y="960" data-scale="0.5">
+        <h2>is it restful?</h2>
+        <pre class="bad">
+/products/books/can-haz-rest
+/products?title=can-haz-rest
+/Y2FuLWhhei1yZXN0%3D
+        </pre>
+      </div>
+
+      <div id="ugly-uri" class="step" data-x="3328" data-y="1152" data-scale="0.5">
+        <pre class="bad">
+/rest.svc?op=Order&amp;
+  product=123&amp;qty=2
+        </pre>
+      </div>
+
+      <div id="uri-tunnel" class="step" data-x="3328" data-y="1344" data-scale="0.5">
+        <h2>rpc & uri</h2>
+        <h3>tunneling</h3>
+      </div>
+
+      <div id="opaque" class="step" data-x="3840" data-y="960" data-scale="0.5">
+        <h2>uri's are</h2>
+        <h3>opaque</h3>
+      </div>
+
+      <div id="uri-template" class="step" data-x="3840" data-y="1152" data-scale="0.5">
+        <h2>what about</h2>
+        <h3>uri templates?</h3>
+        <pre class="bad">/user/{id}</pre>
+      </div>
+
+      <div id="uri-discovery" class="step" data-x="3840" data-y="1344" data-scale="0.5">
+        <h2>make them</h2>
+        <h3>discoverable</h3>
+      </div>
+
+      <div id="resrep" class="step" data-x="3584" data-y="1920" data-scale="1">
+        <h2>uri identifies</h2>
+        <h3>resource, not</h3>
+        <h4>representation</h4>
+      </div>
+
+      <div id="resrep-request" class="step" data-x="3264" data-y="2160" data-scale="0.375">
+        <pre class="good">
+GET /product/123
+
+Accept:
+  application/vnd.example+xml;<b>v=2</b>,
+  application/vnd.example+xml,
+  application/xml
+Accept-Language: de, fr, en
+        </pre>
+      </div>
+
+      <div id="resrep-response" class="step" data-x="3776" data-y="2160" data-scale="0.375">
+        <pre class="good">
+200 OK
+
+Content-Type:
+  application/vnd.example+xml;<b>v=3</b>
+Language: de-DE
+
+&lt;body/&gt;
+        </pre>
+      </div>
+
+      <div id="embrace" class="step" data-x="3584" data-y="2688" data-scale="1">
+        <h2>embrace</h2>
+        <h3>http</h3>
+      </div>
+
+      <div id="http-get" class="step" data-x="2867" data-y="2400" data-scale="0.4">
+        <h2>GET</h2>
+        <h3>idempotent, safe</h3>
+      </div>
+
+      <div id="http-post" class="step" data-x="2867" data-y="2605" data-scale="0.4">
+        <h2>POST</h2>
+        <h3>non-idempotent, unsafe</h3>
+      </div>
+
+      <div id="http-put" class="step" data-x="2867" data-y="2805" data-scale="0.4">
+        <h2>PUT</h2>
+        <h3>idempotent, unsafe</h3>
+      </div>
+
+      <div id="http-delete" class="step" data-x="2867" data-y="2985" data-scale="0.4">
+        <h2>DELETE</h2>
+        <h3>idempotent, unsafe</h3>
+      </div>
+      
+      <div id="crud" class="step" data-x="2355" data-y="2900" data-scale="0.6">
+        <h2>beware of</h2>
+        <h3>CRUD</h3>
+      </div>
+
+      <div id="design" class="step" data-x="2355" data-y="2490" data-scale="0.6">
+        <h2>design api</h2>
+        <h3>with resources</h3>
+        <h4>not http verbs</h4>
+      </div>
+
+      <div id="hyper" class="step" data-x="1536" data-y="2688" data-scale="1">
+        <h2>hypermedia is</h2>
+        <h3>links & forms</h3>
+      </div>
+
+      <div id="hyper-links" class="step" data-x="1280" data-y="2880" data-scale="0.5">
+        <pre class="good">
+/product/123
+
+...
+&lt;a <b>rel</b>=&quot;product-order&quot;
+  <b>href</b>=&quot;/product/123/order&quot;&gt;
+    <b>Order</b>
+&lt;/a&gt;
+...
+        </pre>
+      </div>
+
+      <div id="hyper-forms" class="step" data-x="1792" data-y="2880" data-scale="0.5">
+        <pre class="good">
+/product/123/order
+
+&lt;form action=&quot;<b>/orders</b>&quot;
+  method=&quot;POST&quot;&gt;
+  &lt;input type=&quot;hidden&quot;
+    name=&quot;<b>product</b>&quot; value=&quot;<b>123</b>&quot; /&gt;
+  &lt;input type=&quot;text&quot;
+    name=&quot;<b>quantity</b>&quot; value=&quot;<b>1</b>&quot; /&gt;
+...
+        </pre>
+      </div>
+
+      <div id="ui" class="step" data-x="512" data-y="2688" data-scale="1">
+        <h2>UI</h2>
+        <h3>is already</h3>
+        <h4>restful</h4>
+      </div>
+
+      <div id="recap-res" class="step" data-x="512" data-y="2320" data-scale="1">
+        <h2>resources</h2>
+      </div>
+
+      <div id="recap-repr" class="step" data-x="512" data-y="2120" data-scale="1">
+        <h2>representations</h2>
+      </div>
+
+      <div id="recap-hypermedia" class="step" data-x="512" data-y="1920" data-scale="1">
+        <h2>hypermedia</h2>
+      </div>
+
+      <div id="see" class="step" data-x="512" data-y="1152" data-scale="1">
+        <h2>303 see other</h2>
+      </div>
+
+      <div id="see-rest" class="step" data-x="256" data-y="1090" data-scale="0.5">
+        <img src="img/rest-in-practice.jpg" width="300" />
+        <h2><a href="http://restinpractice.com">REST in Practice</a></h2>
+        <h3>by Jim Weber,<br/>Savas Parastatidis,<br/>Ian Robinson</h3>
+      </div>
+
+      <div id="see-some" class="step" data-x="256" data-y="1394" data-scale="0.5">
+        <img src="img/get-some-rest.jpg" width="300" height="300" />
+        <h2><a href="http://twitter.com/getsomerestbook">@getsomerestbook</a><br/>on twitter</h2>
+        <h3>by Steve Klabnik</h3>
+      </div>
+
+      <div id="see-thanks" class="step" data-x="768" data-y="1090" data-scale="0.5">
+        <h2>thank you!</h2>
+      </div>
+
+      <div id="see-author" class="step" data-x="768" data-y="1394" data-scale="0.5">
+        <h2>Sergey Shishkin</h2>
+        <h3><a href="http://shishkin.org">http://shishkin.org</a></h3>
+        <h4><a href="http://twitter.com/sshishkin">@sshishkin</a></h4>
+      </div>
+
+    </div>
+    <script type="text/javascript" src="impress.js"></script>
+  </body>
+</html>
