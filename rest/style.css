@@ -612,6 +612,22 @@ img.pic {
   font-size: 170px;
 }
 
+#see-ice h2 {
+  float: left;
+  margin-top: 192px;
+  margin-left: 10px;
+  font-size: 100px;
+  text-align: left;
+}
+
+#see-ice h3 {
+  float: right;
+  margin-top: 60px;
+  margin-right: 10px;
+  font-size: 80px;
+  text-align: right;
+}
+
 #see-rest img {
   float: left;
   margin-top: 177px;
@@ -653,6 +669,7 @@ img.pic {
   font-size: 78px;
 }
 
+#impress.step-see #see-ice,
 #impress.step-see #see-rest,
 #impress.step-see #see-some {
   opacity: 1;
