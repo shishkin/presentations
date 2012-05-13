@@ -403,7 +403,7 @@ img.pic {
 }
 
 #uri-discovery h2 {
-  margin-top: 300px;
+  margin-top: 1.2em;
   margin-left: -6px;
   font-size: 210px;
 }
@@ -412,6 +412,11 @@ img.pic {
   margin-top: 40px;
   margin-left: -8px;
   font-size: 183px;
+}
+
+#uri-discovery h4 {
+  margin-top: 0.5em;
+  font-size: 80px;
 }
 
 #resrep h2 {
