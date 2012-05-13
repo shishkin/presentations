@@ -154,23 +154,19 @@ img.pic {
   color: #f88;
 }
 
-#tale h2 {
-  margin-top: -0.175em;
-  margin-left: -10px;
-  font-size: 237px;
-  line-height: 0.8em;
+#intro h2 {
+  margin-left: -0.1em;
+  font-size: 175px;
 }
 
-#tale h3 {
-  margin-top: 20px;
-  font-size: 150px;
+#intro h3 {
+  margin-top: 0.25em;
+  font-size: 275px;
 }
 
-#tale h4 {
-  margin-top: -50px;
-  font-size: 357px;
-  margin-left: -6px;
-  letter-spacing: 0.05em;
+#intro h4 {
+  margin-top: 0.4em;
+  font-size: 220px;
 }
 
 #arch h2 {
