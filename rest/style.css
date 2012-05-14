@@ -572,20 +572,20 @@ img.pic {
 }
 
 #ui h2 {
-  font-size: 300px;
+  font-size: 260px;
   letter-spacing: -0.07em;
 }
 
 #ui h3 {
-  margin-top: -10px;
-  margin-left: -20px;
-  font-size: 246px;
+  margin-top: 0.1em;
+  margin-left: 0em;
+  font-size: 208px;
 }
 
 #ui h4 {
-  margin-top: 40px;
-  margin-left: -26px;
-  font-size: 349px;
+  margin-top: 0.2em;
+  margin-left: -0.1em;
+  font-size: 347px;
 }
 
 #recap-res h2 {
